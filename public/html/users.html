@@ -22,9 +22,9 @@
 
         <button class="btn btn-success btn-md" ng-click='sendMessage(user)'>Send Invite</button>
       </td>
-      <td>
+      <!-- <td>
          Admin: <md-switch class='md-primary' ng-model="user.admin" aria-label="Switch 1" ng-click='toggleAdmin(user)'></md-switch>
-      </td>
+      </td> -->
     </tr>
   </tbody>
 </table>
@@ -34,12 +34,14 @@
 <table class="table">
 <thead>
   <th>From</th>
-  <th>Message</th>
+  <th>Join</th>
 </thead>
   <tbody>
     <tr ng-repeat='message in messages'>
     <td>{{message.email}}</td>
-    <td>{{message.message}}</td>
+    <td>
+      <button class="btn btn-primary">Join Game</button>
+    </td>
       
     </tr>
   </tbody>

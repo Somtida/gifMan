@@ -1,0 +1,40 @@
+<h3>New Game</h3>
+
+<table class="table">
+  <tbody>
+    <tr ng-repeat='user in users track by $index'>
+      <td>{{user.email}}</td>
+      <td>
+
+        <input type="checkbox" value='{{user._id}}' ng-model='user.selected'>
+      </td>
+      <!-- <td>
+         Admin: <md-switch class='md-primary' ng-model="user.admin" aria-label="Switch 1" ng-click='toggleAdmin(user)'></md-switch>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-primary" ng-click='sendInvites()'>Send Invites</button>
+
+
+
+<table class="table">
+<thead>
+  <th>From</th>
+  <th>Join</th>
+</thead>
+  <tbody>
+    <tr ng-repeat='message in messages'>
+    <td>{{message.email}}</td>
+    <td>
+      <button class="btn btn-primary">Join Game</button>
+    </td>
+      
+    </tr>
+  </tbody>
+</table>
+
+<div>
+
+
+</div>
