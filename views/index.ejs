@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/satellizer/satellizer.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+    <script src="/bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch.min.js"></script>
+    <script src="/bower_components/socket.io-client/socket.io.js"></script>
+    <script src="/bower_components/angular-socket-io/socket.min.js"></script>
+    <script src="/js/module.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/services.js"></script>
+</head>
+
+<body ng-app='myApp' ng-controller='mainCtrl'>
+    <div class="container">
+        <h1><%= title %></h1>
+        <h2> isAuthenticated: {{ isAuthenticated() }} </h2>
+        <h2>{{currUser.email}}</h2>
+        <button class="btn" ui-sref='home'>Home</button>
+        <span ng-if='!isAuthenticated()'>
+      <button class="btn" ui-sref='login'>Login</button>
+      <button class="btn" ui-sref='register'>Register</button>
+    </span>
+        <span ng-if='isAuthenticated()'>
+      <button class="btn" ng-click='logout()'>Logout</button>
+      <button class="btn" ui-sref='users'>Users</button>
+    </span>
+        <button class="btn" ui-sref='profile'>Profile</button>
+        <div ui-view></div>
+    </div>
+</body>
+
+</html>
+
