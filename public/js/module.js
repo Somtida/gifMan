@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('myApp', ['ngMaterial','ui.router', 'satellizer', 'btford.socket-io']);
+var app = angular.module('myApp', ['ngMaterial','ui.router', 'satellizer', 'btford.socket-io', 'oitozero.ngSweetAlert']);
 
 app.config(function($authProvider) {
   $authProvider.loginUrl = '/api/users/login';
@@ -47,10 +47,29 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
     .state('game', {
       url: '/game',
       templateUrl: '/html/game.html',
       controller: 'gameCtrl',
+
+    .state('newGame', {
+      url: '/newGame',
+      templateUrl: '/html/newGame.html',
+      controller: 'newGameCtrl',
+      resolve: {
+        Users: function(User) {
+          return User.getAll();
+        }
+      }
+    })
+    .state('playGame', {
+      url: '/playGame/:gameId', 
+      templateUrl: '/html/playGame.html',
+      controller: 'playGameCtrl',
+      params: {data: null}
+
+
     })
 
   $urlRouterProvider.otherwise('/');

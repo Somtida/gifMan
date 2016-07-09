@@ -12,23 +12,14 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-
+var game = require('./game')
 let app = express();
 let server = http.createServer(app);
 let io = require('socket.io')(server);
 
 io.on('connection', function(socket) {
-  console.log('Socket Connected');
-
-  socket.on('sendMessage', function(data) {
-    console.log(data);
-    io.emit(data.id, data);
-  });
-
-  socket.on('disconnect', function() {
-    console.log('Disconnected')
-  })
-
+  
+  game.initGame(io, socket);
 })
 
 //Database setup
