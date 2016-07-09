@@ -1,3 +1,4 @@
+
 'use strict';
 
 var app = angular.module('myApp');
@@ -23,3 +24,16 @@ app.service('User', function($http, $q) {
 
   }
 });
+
+app.service('Game', function($http) {
+  
+  this.getAll = (word) => {
+    return $http.get(`http://api.giphy.com/v1/gifs/search?q=${word}&api_key=dc6zaTOxFJmzC`,{
+              headers : {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+
+    })
+  }
+
+})

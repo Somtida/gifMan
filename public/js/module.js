@@ -47,6 +47,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('game', {
+      url: '/game',
+      templateUrl: '/html/game.html',
+      controller: 'gameCtrl',
+    })
 
   $urlRouterProvider.otherwise('/');
 });
@@ -59,5 +64,7 @@ app.factory('socket', function(socketFactory) {
   socket.forward('newMessage');
   return socket;  
 });
+
+
 
 
