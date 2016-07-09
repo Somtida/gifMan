@@ -23,13 +23,13 @@
     "angular-bootstrap-switch": "^0.5.1",
     "socket.io-client": "^1.4.8",
     "angular-socket-io": "^0.7.0",
-<<<<<<< HEAD
+
     "underscore": "^1.8.3"
-=======
+
     "ngSweetAlert": "angular-sweetalert#^1.1.0"
   },
   "resolutions": {
     "angular": "^1.5.7"
->>>>>>> ed63d43b9b0df151503600da4f86df3dd24b0c63
+
   }
 }
