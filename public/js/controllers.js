@@ -133,7 +133,7 @@ app.controller('usersCtrl', function($scope, $rootScope,Users, User, $state,$q, 
 
 
 
-app.controller('gameCtrl',  function($scope, Game) {
+app.controller('gameCtrl',  function($scope, Giph) {
   
   $scope.missesAllowed = 6;
   
@@ -195,24 +195,25 @@ app.controller('gameCtrl',  function($scope, Game) {
   
   $scope.letters = makeLetters("abcdefghijklmnopqrstuvwxyz");
 
-
-  Game.getAll(words[0])
-  .then((res) => {
-    console.log('data', res.data);
-    $scope.gif = res.data; 
-  })
-
   
 
-  $scope.img1 = "https://media0.giphy.com/media/mHzwTgOK3FKUg/giphy.gif";
-  $scope.img2 = "https://media0.giphy.com/media/mHzwTgOK3FKUg/giphy.gif";
-  $scope.img3 = "https://media4.giphy.com/media/3oEjHXTznp23vHn48E/giphy.gif";
-  $scope.img4 = "http://media3.giphy.com/media/l46CqnZ9RpJYPSjRu/giphy.gif";
+  Giph.getGiph()
+  .then((res) => {
+    // console.log('res', res.data.data[0].images.fixed_height.url);
+    $scope.img1 = res.data.data[0].images.fixed_height.url; 
+    $scope.img2 = res.data.data[1].images.fixed_height.url; 
+    $scope.img3 = res.data.data[2].images.fixed_height.url; 
+    $scope.img4 = res.data.data[3].images.fixed_height.url; 
+  })
+  
+
+  // $scope.img1 = "https://media0.giphy.com/media/mHzwTgOK3FKUg/giphy.gif";
+  // $scope.img2 = "https://media0.giphy.com/media/mHzwTgOK3FKUg/giphy.gif";
+  // $scope.img3 = "https://media4.giphy.com/media/3oEjHXTznp23vHn48E/giphy.gif";
+  // $scope.img4 = "http://media3.giphy.com/media/l46CqnZ9RpJYPSjRu/giphy.gif";
 
 
 });
-
-
 
 
 var words = [
