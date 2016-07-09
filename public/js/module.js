@@ -51,7 +51,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('game', {
       url: '/game',
       templateUrl: '/html/game.html',
-      controller: 'gameCtrl',
+      controller: 'gameCtrl'
+    }) 
 
     .state('newGame', {
       url: '/newGame',
