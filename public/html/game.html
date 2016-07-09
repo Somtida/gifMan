@@ -43,10 +43,10 @@
                         <p>
                             <span class="black-text" ng-hide="win || lost">You have {{ missesAllowed - numMisses }} guesses remaining.</span>
                             <span class='black-text' ng-show="win">Well done!</span>
-                            <span class='black-text' ng-show="lost">Sorry, please try again!</span>
+                            <span class='black-text' ng-show="lost">You lost. Please wait for the other player(s) to finish.</span>
                         </p>
                     </div>
-                    <button ng-click="newGame()" class="btn btn-primary btn-large">New Game</button>
+                    
                 </div>
             </div>
         </div>

@@ -27,16 +27,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '/html/register.html',
       controller: 'registerCtrl'
     })
-    .state('profile', {
-      url: '/profile',
-      templateUrl: '/html/profile.html',
-      controller: 'profileCtrl',
-      resolve: {
-        Profile: function(User) {
-          return User.profile();
-        }
-      }
-    })
+    // .state('profile', {
+    //   url: '/profile',
+    //   templateUrl: '/html/profile.html',
+    //   controller: 'profileCtrl',
+    //   resolve: {
+    //     Profile: function(User) {
+    //       return User.profile();
+    //     }
+    //   }
+    // })
     // .state('users', {
     //   url: '/users',
     //   templateUrl: '/html/users.html',
