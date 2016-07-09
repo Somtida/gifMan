@@ -27,6 +27,9 @@ app.controller('mainCtrl', function($scope, $state, $auth, $rootScope, socket, S
   };
 
 
+ if ($scope.isAuthenticated()) {
+    
+  
    socket.on($rootScope.currentUser._id, function(gameData) {
       console.log(gameData);
       SweetAlert.swal({
@@ -48,6 +51,8 @@ app.controller('mainCtrl', function($scope, $state, $auth, $rootScope, socket, S
 
       });
     });
+
+ }
 
 
 
