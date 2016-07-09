@@ -149,9 +149,9 @@ app.controller('profileCtrl', function($scope, Profile, $rootScope) {
 
 app.controller('newGameCtrl', function($scope, Users, $rootScope, socket, $state, $auth,SweetAlert) {
   $rootScope.currentUser = $auth.getPayload();
-  console.log($rootScope.currentUser);
+  // console.log($rootScope.currentUser);
   socket.on($rootScope.currentUser._id, function(gameData) {
-    console.log(gameData);
+    // console.log(gameData);
     SweetAlert.swal({
         title: "You have been invited to a new game",
         text: "Click play to join game!",
@@ -188,11 +188,11 @@ app.controller('newGameCtrl', function($scope, Users, $rootScope, socket, $state
     socket.emit('newGame', $scope.invites);
 
     socket.on('newGameCreated', function(gameInfo) {
-      console.log('Game Info', gameInfo);
+      // console.log('Game Info', gameInfo);
       $state.go('game', { gameId: gameInfo.newGameId, data: gameInfo });
       // socket.emit('sendInvites', )
     });
-    console.log($rootScope.currentUser);
+    // console.log($rootScope.currentUser);
 
 
 
@@ -204,19 +204,19 @@ app.controller('newGameCtrl', function($scope, Users, $rootScope, socket, $state
 
 
 app.controller('playGameCtrl', function($scope, $rootScope, socket) {
-  console.log('playGameCtrl!');
+  // console.log('playGameCtrl!');
 
 
   socket.on('startGameBack', function(gameObj) {
-    console.log('in start game', gameObj.word);
+    // console.log('in start game', gameObj.word);
     $scope.gameId = gameObj.gameId;
-    console.log('gameid', $scope.gameId);
+    // console.log('gameid', $scope.gameId);
     socket.emit('startGameFront', gameObj);
   })
 
   socket.on('playerAdded', function(playerObj) {
-    console.log(playerObj);
-    console.log('in playerAdded', playerObj.currNumPlayers + '/' + playerObj.totalNum);
+    // console.log(playerObj);
+    // console.log('in playerAdded', playerObj.currNumPlayers + '/' + playerObj.totalNum);
   })
 
 
@@ -224,8 +224,8 @@ app.controller('playGameCtrl', function($scope, $rootScope, socket) {
   // $rootScope.currentUser = Profile.data;
   socket.on('startGameFinal', function(wordObj) {
     $scope.gameId = gameObj.gameId;
-    console.log('in start game FINAL', wordObj.word);
-    console.log('gameid', $scope.gameId);
+    // console.log('in start game FINAL', wordObj.word);
+    // console.log('gameid', $scope.gameId);
   })
 
 });
@@ -247,7 +247,7 @@ app.controller('gameCtrl', function($scope, Giph, $rootScope, socket, SweetAlert
   // var secretWord;
 
   socket.on('gameOver', function(winner) {
-    console.log('in gameOver', winner);
+    // console.log('in gameOver', winner);
     SweetAlert.swal({
         title: winner + ' is the winner',
         imageUrl: "https://media.giphy.com/media/xT5LMFfdiaF8eWV85i/giphy.gif",
@@ -264,7 +264,7 @@ app.controller('gameCtrl', function($scope, Giph, $rootScope, socket, SweetAlert
   })
 
   socket.on('startGameBack', function(gameObj) {
-    console.log('in start game', gameObj.word);
+    // console.log('in start game', gameObj.word);
     socket.emit('startGameFront', gameObj);
     $scope.gameId = gameObj.gameId;
     // $scope.secretWord = gameObj.word;
@@ -284,8 +284,8 @@ app.controller('gameCtrl', function($scope, Giph, $rootScope, socket, SweetAlert
   // if($rootScope.numPlayers)
   // $rootScope.currentUser = Profile.data;
   socket.on('startGameFinal', function(wordObj) {
-    console.log('in start game FINAL', wordObj.word);
-    console.log('in final', wordObj);
+    // console.log('in start game FINAL', wordObj.word);
+    // console.log('in final', wordObj);
     // words.push(wordObj.word);
     $scope.gameId = wordObj.gameId;
     startGame(wordObj.word)
@@ -323,7 +323,7 @@ app.controller('gameCtrl', function($scope, Giph, $rootScope, socket, SweetAlert
       }, true);
 
       if ($scope.win) {
-        console.log('gameId', $scope.gameId)
+        // console.log('gameId', $scope.gameId)
         socket.emit('winner', { player: $scope.currentUser.email, gameId: $scope.gameId });
 
         SweetAlert.swal({
