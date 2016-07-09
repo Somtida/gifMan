@@ -1,56 +1,54 @@
-
-<h1>Giphman!</h1>
-
-<div class="row">
-  <img class="col-xs-5" src={{img1}} alt="img" width="400" height="300">
-  <p class="col-xs-1"></p>
-  <img class="col-xs-5" src={{img2}} alt="img" width="400" height="300">
-  <p class="col-xs-1"></p>
-</div>
-<div class="row">
-  <p></p>
-</div>
-<div class="row">
-  <img class="col-xs-5" src={{img3}} alt="img"  width="400" height="300">
-  <p class="col-xs-1"></p>
-  <img class="col-xs-5" src={{img4}} alt="img"  width="400" height="300">
-  <p class="col-xs-1"></p>
-</div>
-
-
-
-
-
-
-<div class="container-fluid">
-  <div class="well">
-    <div class="secretWord">
-      <ul class="list-inline">
-        <li ng-repeat="letter in secretWord">
-          <span ng-hide="letter.chosen">_</span>
-          <span ng-show="letter.chosen">{{ letter.name }}</span>
-        </li>
-      </ul>
-
-      <div class="letters">
-        <ul class="list-inline">
-          <li ng-repeat="letter in letters">
-            <button class="btn btn-primary letter-button"
-            ng-disabled="letter.chosen"
-            ng-click="try(letter);">{{letter.name}}</button>
-          </li>
-        </ul>
-      </div>
-
-      <p>
-        <span ng-hide="win || lost">You have {{ missesAllowed - numMisses }} guesses remaining.</span>
-        <span ng-show="win">Well done!</span>
-        <span ng-show="lost">Sorry, please try again!</span>
-      </p>
+<div class='container game-page'>
+    <div class='text-center'>
+        <h1>Gifman!</h1>
     </div>
-  </div>
+    <div class='text-center' ng-if='!start'>
+        <h1>Waiting for other players......</h1>
+    </div>
+    <div ng-if='start'>
+        <div class='text-center'>
+            <h1 class='gameTitle'>Look at the gifs and guess the word!</h1>
+        </div>
+        <div class="container-fluid text-center">
+            <div class="row images-row">
+                <div class='col-xs-12 col-sm-3'>
+                    <img class="gif-image-box" src={{img1}} alt="img">
+                </div>
+                <div class='col-xs-12 col-sm-3'>
+                    <img class="gif-image-box" src={{img2}} alt="img">
+                </div>
+                <div class='col-xs-12 col-sm-3'>
+                    <img class="gif-image-box" src={{img3}} alt="img">
+                </div>
+                <div class='col-xs-12 col-sm-3'>
+                    <img class="gif-image-box" src={{img4}} alt="img">
+                </div>
+            </div>
+            <div class="row">
+                <div class="well">
+                    <div class="secretWord">
+                        <ul class="list-inline">
+                            <li ng-repeat="letter in secretWord">
+                                <span class="black-text" ng-hide="letter.chosen">_</span>
+                                <span class='black-text' ng-show="letter.chosen">{{ letter.name }}</span>
+                            </li>
+                        </ul>
+                        <div class="letters">
+                            <ul class="list-inline">
+                                <li ng-repeat="letter in letters">
+                                    <button class="btn btn-primary letter-button" ng-disabled="letter.chosen" ng-click="try(letter);">{{letter.name}}</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <p>
+                            <span class="black-text" ng-hide="win || lost">You have {{ missesAllowed - numMisses }} guesses remaining.</span>
+                            <span class='black-text' ng-show="win">Well done!</span>
+                            <span class='black-text' ng-show="lost">Sorry, please try again!</span>
+                        </p>
+                    </div>
+                    <button ng-click="newGame()" class="btn btn-primary btn-large">New Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<button ng-click="reset();" class="btn btn-primary btn-large">New Game</button>
-</body>
-</html>

@@ -51,7 +51,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('game', {
       url: '/game',
       templateUrl: '/html/game.html',
-      controller: 'gameCtrl'
+      controller: 'gameCtrl',
+      params: {data: null}
     }) 
 
     .state('newGame', {
@@ -64,14 +65,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('playGame', {
-      url: '/playGame/:gameId', 
-      templateUrl: '/html/playGame.html',
-      controller: 'playGameCtrl',
-      params: {data: null}
+    // .state('playGame', {
+    //   url: '/playGame/:gameId', 
+    //   templateUrl: '/html/playGame.html',
+    //   controller: 'playGameCtrl',
+    //   params: {data: null}
 
 
-    })
+    // })
 
   $urlRouterProvider.otherwise('/');
 });

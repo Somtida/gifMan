@@ -28,8 +28,8 @@ app.service('User', function($http, $q) {
 
 app.service('Giph', function($http) {
 
-  this.getGiph = () => {
-    return $http.get('/api/giphs')
+  this.getGiph = (word) => {
+    return $http.post('/api/giphs', {word})
     .catch(err => {
       console.log(err);
     })

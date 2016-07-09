@@ -6,8 +6,9 @@ let router = express.Router();
 let request = require('request');
 
 
-router.get('/', (req, res) => {
-	request(`http://api.giphy.com/v1/gifs/search?q=cat&api_key=dc6zaTOxFJmzC`, function(err, response, body) {
+router.post('/', (req, res) => {
+  console.log('the word:',req.body)
+	request(`http://api.giphy.com/v1/gifs/search?q=${req.body.word}&api_key=dc6zaTOxFJmzC`, function(err, response, body) {
 		if(err) return res.status(400).send(err);
 		res.send(body);
 	})

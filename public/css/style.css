@@ -1,18 +1,24 @@
 
-
 /* Hangman Stuff */
 body {
-  padding: 20px 40px;
+  /*background-color: #337AB7;*/
+  padding-top: 60px;
   font-family: "Verdana";
+  /*color: white;*/
 }
 
+
+.game-page {
+  /*color: white;*/
+  /*background-color: #337AB7;*/
+}
 h1 {
   margin: 20px;
 }
-
+/*
 *{
   text-align: center;
-}
+}*/
 
 .secretWord {
   margin-top: 20px;
@@ -24,3 +30,21 @@ h1 {
   opacity: 0.5;
   color: black;
 }
+
+.gif-image-box {
+  height: 200px;
+  width: 200px;
+}
+
+.images-row {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+}
+
+.black-text {
+  color: black;
+}
+
