@@ -61,7 +61,7 @@ app.use('/api', require('./routes/api'));
 //////////////////////
 
 app.get('/', (req,res) => {
-  res.render('index', {title: 'Hello World!'});
+  res.render('index', {title: 'Giphman!'});
 });
 
 
