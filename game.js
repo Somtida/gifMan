@@ -3,7 +3,7 @@
 const uuid = require('uuid');
 var io;
 var socket;
-var words = ['scary', 'fail', 'ugly', 'trump', 'pokemon', 'furious', 'fighting', 'twerk', 'matrix', 'arnold', 'funny', 'kitten', 'puppy'];
+var words = ['scary', 'fail', 'ugly', 'trump', 'pokemon', 'furious', 'fighting', 'twerk', 'matrix', 'arnold', 'funny', 'kitten', 'puppy','funny', 'big', 'love', 'fall', 'spring', 'winter', 'trip'];
 
 
 
