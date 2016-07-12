@@ -12,7 +12,7 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-var game = require('./game')
+var game = require('./game');
 let app = express();
 let server = http.createServer(app);
 let io = require('socket.io')(server);

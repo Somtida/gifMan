@@ -39,7 +39,7 @@ exports.initGame = function(sio, socket) {
 
     this.join(gameId);
     var clients = io.sockets.adapter.rooms[gameId];
-
+    console.log('rooms:', io.sockets.adapter.rooms);
     console.log(clients.length, numPlayers);
     if (clients.length === numPlayers) {
       let word = getRandomWord();
@@ -60,6 +60,7 @@ exports.initGame = function(sio, socket) {
     console.log('start word:', gameObj);
     var clients = io.sockets.adapter.rooms[gameObj.gameId];
     console.log(clients);
+    console.log('rooms:', io.sockets.adapter.rooms);
 
     this.in(gameObj.gameId).emit('startGameFinal', { word: gameObj.word , gameId: gameObj.gameId});
 
